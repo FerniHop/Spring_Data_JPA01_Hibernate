@@ -18,8 +18,8 @@ public class Wizard {
     private String biography;
     private boolean muggle;
 
-    @ManyToOne
-    @JoinColumn(name = "school_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "school_id", nullable = false)
     private School school;
 
     public School getSchool() {
